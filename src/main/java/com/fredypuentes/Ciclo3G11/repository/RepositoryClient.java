@@ -16,39 +16,8 @@ public class RepositoryClient {
     public List<Client> getAll() { return (List<Client>) rc.findAll(); }
     public Optional<Client> getClient(int id) { return rc.findById(id); }
 
-    public Client save(Client cli) {
-        if (cli.getIdClient() == null) {
-            return rc.save(cli);
-        } else {
-            Optional<Client> e = rc.findById(cli.getIdClient());
-            if (e == null) {
-                return rc.save(cli);
-            } else {
-                return cli;
-            }
-        }
-    }
-
-    public Client update(Client cli) {
-        Optional<Client> e = rc.findById(cli.getIdClient());
-        if (!e.isEmpty()) {
-            if (cli.getName() != null)
-            {
-                e.get().setName(cli.getName());
-            }
-            if (cli.getEmail() != null)
-            {
-                e.get().setEmail(cli.getEmail());
-            }
-            if (cli.getAge() != null)
-            {
-                e.get().setAge(cli.getAge());
-            }
-            rc.save(e.get());
-            return e.get();
-        } else {
-            return cli;
-        }
+    public Client save(Client client){
+        return rc.save(client);
     }
 
     public void delete(Client cli) { rc.delete(cli); }

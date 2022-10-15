@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceCategory {
@@ -16,8 +17,17 @@ public class ServiceCategory {
     public Category getCategory(Integer id){
         return  rc.getCategory(id).get();
     }
-    public Category save(Category cat){
-        return rc.save(cat);
+    public Category save(Category category) {
+        if (category.getId() == null) {
+            return rc.save(category);
+        } else {
+            Optional<Category> category1 = rc.getCategory(category.getId());
+            if (category1.isEmpty()) {
+                return rc.save(category);
+            } else {
+                return category;
+            }
+        }
     }
     public Category update(Category cat){
         return  rc.update(cat);

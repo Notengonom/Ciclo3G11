@@ -16,17 +16,8 @@ public class RepositoryCategory {
     public List<Category> getAll() { return (List<Category>) rc.findAll(); }
     public Optional<Category> getCategory(int id) { return rc.findById(id); }
 
-    public Category save(Category cat) {
-        if (cat.getId() == null) {
-            return rc.save(cat);
-        } else {
-            Optional<Category> e = rc.findById(cat.getId());
-            if (e == null) {
-                return rc.save(cat);
-            } else {
-                return cat;
-            }
-        }
+    public Category save(Category category){
+        return rc.save(category);
     }
 
     public Category update(Category cat) {
