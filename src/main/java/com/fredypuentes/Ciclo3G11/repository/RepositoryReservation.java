@@ -49,9 +49,9 @@ public class RepositoryReservation {
             {
                 e.get().setScore(rsv.getScore());
             }
-            if (rsv.getBike() != null)
+            if (rsv.getMotorbike() != null)
             {
-                e.get().setBike(rsv.getBike());
+                e.get().setMotorbike(rsv.getMotorbike());
             }
             if (rsv.getClient() != null)
             {

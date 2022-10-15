@@ -79,11 +79,11 @@ public class Reservation implements Serializable {
         this.score = score;
     }
 
-    public Motorbike getBike() {
+    public Motorbike getMotorbike() {
         return motorbike;
     }
 
-    public void setBike(Motorbike motorbike) {
+    public void setMotorbike(Motorbike motorbike) {
         this.motorbike = motorbike;
     }
 }

@@ -15,7 +15,7 @@ public class RepositoryMotorbike {
     private RepositoryCrudBike rb;
 
     public List<Motorbike> getAll() { return (List<Motorbike>) rb.findAll(); }
-    public Optional<Motorbike> getBike(int id) { return rb.findById(id); }
+    public Optional<Motorbike> getMotorbike(int id) { return rb.findById(id); }
 
     public Motorbike save(Motorbike motorbike) {
         if (motorbike.getId() == null) {
@@ -30,48 +30,48 @@ public class RepositoryMotorbike {
         }
     }
 
-    public Motorbike update(Motorbike bik) {
-        Optional<Motorbike> e = rb.findById(bik.getId());
+    public Motorbike update(Motorbike motorbike) {
+        Optional<Motorbike> e = rb.findById(motorbike.getId());
         if (!e.isEmpty()) {
-            if (bik.getName() != null)
+            if (motorbike.getName() != null)
             {
-                e.get().setName(bik.getName());
+                e.get().setName(motorbike.getName());
             }
-            if (bik.getBrand() != null)
+            if (motorbike.getBrand() != null)
             {
-                e.get().setBrand(bik.getBrand());
+                e.get().setBrand(motorbike.getBrand());
             }
-            if (bik.getDescription() != null)
+            if (motorbike.getDescription() != null)
             {
-                e.get().setDescription(bik.getDescription());
+                e.get().setDescription(motorbike.getDescription());
             }
-            if (bik.getCategory() != null)
+            if (motorbike.getCategory() != null)
             {
-                e.get().setCategory(bik.getCategory());
+                e.get().setCategory(motorbike.getCategory());
             }
-            if (bik.getYear() != null)
+            if (motorbike.getYear() != null)
             {
-                e.get().setYear(bik.getYear());
+                e.get().setYear(motorbike.getYear());
             }
-            if (bik.getMessages() != null)
+            if (motorbike.getMessages() != null)
             {
-                e.get().setMessages(bik.getMessages());
+                e.get().setMessages(motorbike.getMessages());
             }
-            if (bik.getReservations() != null)
+            if (motorbike.getReservations() != null)
             {
-                e.get().setReservations(bik.getReservations());
+                e.get().setReservations(motorbike.getReservations());
             }
             rb.save(e.get());
             return e.get();
         } else {
-            return bik;
+            return motorbike;
         }
     }
 
     public void delete(Motorbike motorbike) { rb.delete(motorbike); }
 
-    public boolean deleteBike(int id) {
-        boolean aBoolean = getBike(id).map(motorbike -> {
+    public boolean deleteMotorbike(int id) {
+        boolean aBoolean = getMotorbike(id).map(motorbike -> {
             rb.delete(motorbike);
             return true;
         }).orElse(false);

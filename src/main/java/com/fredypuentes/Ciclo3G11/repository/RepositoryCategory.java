@@ -40,9 +40,9 @@ public class RepositoryCategory {
             {
                 e.get().setDescription(cat.getDescription());
             }
-            if (cat.getBikes() != null)
+            if (cat.getMotorbikes() != null)
             {
-                e.get().setBikes(cat.getBikes());
+                e.get().setMotorbikes(cat.getMotorbikes());
             }
             rc.save(e.get());
             return e.get();

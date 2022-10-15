@@ -37,9 +37,9 @@ public class RepositoryMessage {
             {
                 e.get().setMessageText(cat.getMessageText());
             }
-            if (cat.getBike() != null)
+            if (cat.getMotorbike() != null)
             {
-                e.get().setBike(cat.getBike());
+                e.get().setMotorbike(cat.getMotorbike());
             }
             if (cat.getClient() != null)
             {

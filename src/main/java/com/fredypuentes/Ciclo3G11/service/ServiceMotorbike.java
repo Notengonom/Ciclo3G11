@@ -16,8 +16,8 @@ public class ServiceMotorbike {
 
     @Autowired
     public List<Motorbike> getAll(){ return rb.getAll(); }
-    public Motorbike getBike(Integer id){
-        return  rb.getBike(id).get();
+    public Motorbike getMotorbike(Integer id){
+        return  rb.getMotorbike(id).get();
     }
     public Motorbike save(Motorbike motorbike){
         return rb.save(motorbike);
@@ -25,5 +25,5 @@ public class ServiceMotorbike {
     public Motorbike update(Motorbike motorbike){
         return  rb.update(motorbike);
     }
-    public void delete(Integer doc){ rb.deleteBike(doc); }
+    public void delete(Integer doc){ rb.deleteMotorbike(doc); }
 }

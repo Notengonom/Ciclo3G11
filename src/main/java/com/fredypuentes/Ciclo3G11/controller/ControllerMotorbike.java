@@ -16,11 +16,11 @@ public class ControllerMotorbike {
     private ServiceMotorbike sb;
 
     @GetMapping("/all")
-    public List<Motorbike> getBikeAll(){ return sb.getAll(); }
+    public List<Motorbike> getMotorbikeAll(){ return sb.getAll(); }
 
     @GetMapping("/{doc}")
-    public Motorbike findBikeById(@PathVariable("doc")int doc){
-        return sb.getBike(doc);
+    public Motorbike findMotorbikeById(@PathVariable("doc")int doc){
+        return sb.getMotorbike(doc);
     }
 
     @PostMapping("/save")
@@ -35,7 +35,7 @@ public class ControllerMotorbike {
 
     @DeleteMapping("/{doc}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBikeById(@PathVariable("doc") int doc){
+    public void deleteMotorbikeById(@PathVariable("doc") int doc){
         sb.delete(doc);
     }
 }
