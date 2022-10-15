@@ -19,11 +19,11 @@ public class ServiceMotorbike {
     public Motorbike getBike(Integer id){
         return  rb.getBike(id).get();
     }
-    public Motorbike save(Motorbike bik){
-        return rb.save(bik);
+    public Motorbike save(Motorbike motorbike){
+        return rb.save(motorbike);
     }
-    public Motorbike update(Motorbike bik){
-        return  rb.update(bik);
+    public Motorbike update(Motorbike motorbike){
+        return  rb.update(motorbike);
     }
     public void delete(Integer doc){ rb.deleteBike(doc); }
 }

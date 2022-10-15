@@ -17,15 +17,15 @@ public class RepositoryMotorbike {
     public List<Motorbike> getAll() { return (List<Motorbike>) rb.findAll(); }
     public Optional<Motorbike> getBike(int id) { return rb.findById(id); }
 
-    public Motorbike save(Motorbike bik) {
-        if (bik.getId() == null) {
-            return rb.save(bik);
+    public Motorbike save(Motorbike motorbike) {
+        if (motorbike.getId() == null) {
+            return rb.save(motorbike);
         } else {
-            Optional<Motorbike> e = rb.findById(bik.getId());
+            Optional<Motorbike> e = rb.findById(motorbike.getId());
             if (e == null) {
-                return rb.save(bik);
+                return rb.save(motorbike);
             } else {
-                return bik;
+                return motorbike;
             }
         }
     }
@@ -68,11 +68,11 @@ public class RepositoryMotorbike {
         }
     }
 
-    public void delete(Motorbike bik) { rb.delete(bik); }
+    public void delete(Motorbike motorbike) { rb.delete(motorbike); }
 
     public boolean deleteBike(int id) {
-        boolean aBoolean = getBike(id).map(bike -> {
-            rb.delete(bike);
+        boolean aBoolean = getBike(id).map(motorbike -> {
+            rb.delete(motorbike);
             return true;
         }).orElse(false);
         return aBoolean;
