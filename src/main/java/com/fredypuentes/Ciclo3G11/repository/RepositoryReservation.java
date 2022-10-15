@@ -3,7 +3,6 @@ package com.fredypuentes.Ciclo3G11.repository;
 
 import com.fredypuentes.Ciclo3G11.model.Client;
 import com.fredypuentes.Ciclo3G11.model.Reservation;
-import com.fredypuentes.Ciclo3G11.model.reports.CountClient;
 import com.fredypuentes.Ciclo3G11.repository.CRUD.RepositoryCrudReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -78,19 +77,4 @@ public class RepositoryReservation {
         return aBoolean;
     }
 
-    public List<CountClient> getTopClients() {
-        List<CountClient> respuesta = new ArrayList<>();
-        List<Object[]> reporte = rcr.TotalReservationsByClients();
-        for (int i = 0; i<reporte.size(); i++){
-            respuesta.add(new CountClient((Long) reporte.get(i)[1], (Client) reporte.get(i)[0]));
-        }
-        return respuesta;
-    }
-    public List<Reservation> getReservationPeriod (Date start, Date Devolution){
-        return rcr.findAllByStartDateAfterAndDevolutionDateBefore(start, Devolution);
-    }
-
-    public List<Reservation> getReservationStatus (String status) {
-        return rcr.findAllByStatus(status);
-    }
 }

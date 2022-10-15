@@ -1,8 +1,6 @@
 package com.fredypuentes.Ciclo3G11.controller;
 
 import com.fredypuentes.Ciclo3G11.model.Reservation;
-import com.fredypuentes.Ciclo3G11.model.reports.CountClient;
-import com.fredypuentes.Ciclo3G11.model.reports.CountStatus;
 import com.fredypuentes.Ciclo3G11.service.ServiceReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,20 +17,11 @@ public class ControllerReservation {
     @GetMapping("/all")
     public List<Reservation> getReservationAll(){ return sr.getAll(); }
 
-    @GetMapping("/report-clients")
-    public List<CountClient> getReportTopClients (){
-        return sr.getTopClients();
-    }
 
-    @GetMapping("/report-status")
-    public CountStatus getReportReservationStatus(){
-        return sr.getReservationStatus();
-    }
-
-    @GetMapping("/report-dates/{date1}/{date2}")
+    /*@GetMapping("/report-dates/{date1}/{date2}")
     public List<Reservation> getReportReservationDate(@PathVariable("date1")String date1, @PathVariable("date2")String date2){
         return sr.getReservationPeriod(date1, date2);
-    }
+    }*/
 
     @GetMapping("/{doc}")
     public Reservation findReservationById(@PathVariable("doc")int doc){

@@ -2,8 +2,6 @@ package com.fredypuentes.Ciclo3G11.service;
 
 
 import com.fredypuentes.Ciclo3G11.model.Reservation;
-import com.fredypuentes.Ciclo3G11.model.reports.CountClient;
-import com.fredypuentes.Ciclo3G11.model.reports.CountStatus;
 import com.fredypuentes.Ciclo3G11.repository.RepositoryReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +28,7 @@ public class ServiceReservation {
         return  rr.update(rsv);
     }
     public void delete(Integer doc){ rr.deleteReservation(doc); }
-    public List<Reservation> getReservationPeriod(String dateA, String dateB) {
+    /*public List<Reservation> getReservationPeriod(String dateA, String dateB) {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date a = new Date();
         Date b = new Date();
@@ -41,19 +39,12 @@ public class ServiceReservation {
         catch(ParseException exception){
             exception.printStackTrace();
         }
-        if (a.before(b)){
-            return  rr.getReservationPeriod(a,b);
+        //if (a.before(b)){
+            //return  rr.getReservationPeriod(a,b);
         }
         else {
             return new ArrayList<>();
         }
-    }
-    public List<CountClient> getTopClients() { return  rr.getTopClients(); }
+    }*/
 
-    public CountStatus getReservationStatus() {
-        List<Reservation> completed = rr.getReservationStatus("completed");
-        List<Reservation> cancelled = rr.getReservationStatus("cancelled");
-
-        return new CountStatus (completed.size(), cancelled.size());
-    }
 }
